@@ -2,7 +2,7 @@
 // local storage rather than the course database. static/theme-boot.js applies the same attributes before the first
 // paint, so a dark theme never flashes white on start; keep the two in step.
 
-export const STORAGE_KEY = "selfsemester.prefs.v1";
+export const STORAGE_KEY = "coursify.prefs.v1";
 
 export type Mode = "system" | "light" | "dark";
 export type LightTheme = "classic" | "paper" | "mint" | "contrast";

@@ -57,7 +57,7 @@ jobs:
         GH_TOKEN: ${{ github.token }}
       run: |
         gh release view $env:TAG *> $null
-        if ($LASTEXITCODE -ne 0) { gh release create $env:TAG --title "SelfSemester $($env:TAG.TrimStart('v'))" --notes "See CHANGELOG.md." }
+        if ($LASTEXITCODE -ne 0) { gh release create $env:TAG --title "Coursify $($env:TAG.TrimStart('v'))" --notes "See CHANGELOG.md." }
         exit 0
 
     - name: Attach to the release

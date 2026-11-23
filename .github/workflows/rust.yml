@@ -15,7 +15,7 @@ env:
 
 jobs:
   build:
-    # SelfSemester is a Windows app (WebView2), so build and test it on Windows.
+    # Coursify is a Windows app (WebView2), so build and test it on Windows.
     runs-on: windows-latest
 
     steps:

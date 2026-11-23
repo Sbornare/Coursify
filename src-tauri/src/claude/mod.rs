@@ -1,6 +1,6 @@
 //! The Claude layer.
 //!
-//! SelfSemester never calls the Claude API itself and never handles Claude credentials. It runs the user's own,
+//! Coursify never calls the Claude API itself and never handles Claude credentials. It runs the user's own,
 //! unmodified Claude Code CLI (`claude -p`), which the user signed in to through Claude Code's own flow, so usage
 //! comes out of the user's own Claude subscription. See CLAUDE.md "Claude access" for the rules this follows.
 

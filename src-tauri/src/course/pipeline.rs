@@ -790,7 +790,7 @@ pub(crate) mod tests {
 
     /// Builds demo data for README screenshots from saved stage outputs (1-intake.json, 2-plan.json,
     /// 3-sources.json, 4-unit.json, as written by `live_compile_stages`). Makes two separate homes for
-    /// `SELFSEMESTER_HOME`: `<out>/review` (a plan waiting for approval) and `<out>/active` (a running course).
+    /// `COURSIFY_HOME`: `<out>/review` (a plan waiting for approval) and `<out>/active` (a running course).
     /// `SS_DEMO_DATA=<stage outputs> SS_DEMO_OUT=<dir> cargo test --lib -- --ignored seed_demo`
     #[test]
     #[ignore]
@@ -822,7 +822,7 @@ pub(crate) mod tests {
         drop(conn);
 
         // 2. A course part way through building (first unit written, waiting to be checked). Run the app with
-        //    SELFSEMESTER_NO_CLAUDE=1 so it stays there.
+        //    COURSIFY_NO_CLAUDE=1 so it stays there.
         let (paths, conn, sealer) = home("building");
         let id = create(&conn, "Git basics", "Keep it to one week.").unwrap();
         answer(&conn, &paths, &sealer, intake.clone());

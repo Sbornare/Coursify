@@ -1,6 +1,6 @@
-# SelfSemester screen by screen
+# Coursify screen by screen
 
-Every picture here is SelfSemester in a normal-sized window (1280 × 800, shown at twice the resolution so text stays
+Every picture here is Coursify in a normal-sized window (1280 × 800, shown at twice the resolution so text stays
 sharp). The courses and marks in them are made up for the pictures, except the example lessons, which were
 written by the app's own lesson prompt (see [Example lessons](#example-lessons)). Click any picture to see it full
 size. The short version of all this is in the [README](../README.md).
@@ -81,7 +81,7 @@ figure with the maths and checks its caption and numbering.
 
 ![Today page with a greeting, the daily goal ring, streak and what's due](../assets/screenshots/04-today.png)
 
-The page SelfSemester opens on. The header greets you and shows three numbers: study time today against your daily
+The page Coursify opens on. The header greets you and shows three numbers: study time today against your daily
 goal (the ring fills as you go), your streak of days with some study or handed-in work, and your average across
 active courses. Below it, sections tile into columns: work due this week, lessons released and not yet read, work
 waiting for marks, and work marked this week with its score. Each row shows the course, the deadline and how long is

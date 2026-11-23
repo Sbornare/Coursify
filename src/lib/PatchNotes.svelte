@@ -8,7 +8,7 @@
 <section class="card" id="whats-new">
   <div class="spread">
     <h2><Icon name="sparkle" size={18} /> What's new</h2>
-    <a class="small" href="https://github.com/munitkala/selfsemester/blob/main/CHANGELOG.md">Full changelog</a>
+    <a class="small" href="https://github.com/Sbornare/Coursify/blob/main/CHANGELOG.md">Full changelog</a>
   </div>
   {#each patchNotes as n, i (n.version)}
     <details open={i === 0}>

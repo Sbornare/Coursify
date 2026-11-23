@@ -1,6 +1,6 @@
 ---
 name: An idea or request
-about: Something that would make SelfSemester more useful
+about: Something that would make Coursify more useful
 labels: idea
 ---
 

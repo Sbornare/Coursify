@@ -97,10 +97,10 @@ impl Worker {
 
     pub fn spawn(self: Arc<Self>, shell: Arc<dyn Shell>) {
         std::thread::Builder::new()
-            .name("selfsemester-worker".into())
+            .name("coursify-worker".into())
             .spawn(move || {
-                // SELFSEMESTER_NO_CLAUDE=1 keeps queued jobs waiting (for a demo or test copy of the app).
-                let run_jobs = std::env::var("SELFSEMESTER_NO_CLAUDE").map_or(true, |v| v.is_empty() || v == "0");
+                // COURSIFY_NO_CLAUDE=1 keeps queued jobs waiting (for a demo or test copy of the app).
+                let run_jobs = std::env::var("COURSIFY_NO_CLAUDE").map_or(true, |v| v.is_empty() || v == "0");
                 let mut last_tick = Instant::now() - TICK_EVERY;
                 loop {
                     if last_tick.elapsed() >= TICK_EVERY {

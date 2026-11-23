@@ -1,11 +1,20 @@
 # Changelog
 
-What changed in each version of SelfSemester, newest first. Changes that haven't been given a version number yet
+What changed in each version of Coursify, newest first. Changes that haven't been given a version number yet
 are listed under **Unreleased**.
 
 ## Unreleased
 
-Nothing yet.
+### SelfSemester is now Coursify
+
+- The app has a new name everywhere: the window, the installer, the program and its folders
+  (`%LOCALAPPDATA%\Coursify` and `Documents\Coursify`).
+- The first time Coursify opens, it copies your courses, sealed answer keys, tools, completed-course archives,
+  backups and course builder exports from the old `SelfSemester` folders. The old folders are left as they were, so
+  you can delete them yourself once you've checked everything is there.
+- Courses exported from the course builder before the rename still import.
+- Display choices (theme, accent colour) are kept by the window itself, so they go back to the defaults once.
+- Developer settings are renamed too: `COURSIFY_HOME`, `COURSIFY_NO_CLAUDE` and `COURSIFY_TOOLS_FROM`.
 
 ## 0.8.0 (2026-11-19)
 
@@ -63,9 +72,9 @@ Claude's memory of it, and you should be able to check that every standard is co
 
 ### Demo builds
 
-- A demo installer can ship with a finished course. On its first launch on a computer with no SelfSemester data, it
+- A demo installer can ship with a finished course. On its first launch on a computer with no Coursify data, it
   copies the course in, opens every lesson and piece of work at once, and moves the deadlines so the course starts
-  that day. A computer that already has SelfSemester data is left alone. Ordinary installers have no demo course.
+  that day. A computer that already has Coursify data is left alone. Ordinary installers have no demo course.
 
 ## 0.7.1 (2026-11-15)
 
@@ -133,7 +142,7 @@ usage they have. Until now every course was built the same way.
 sheet music. Building all of that into the app would make it bigger for everyone, including people who never study
 those subjects.
 
-- Right after installing, SelfSemester asks what you plan to study and offers the common tools for it: geometry and
+- Right after installing, Coursify asks what you plan to study and offers the common tools for it: geometry and
   graphing, sheet music, 3D molecules and world maps. Pick any, or none.
 - When Claude plans a course, it names any tools the lessons would use. If one isn't installed, the review step asks
   whether to install it for that course; untick it and the course is written without it. Some tools are only offered
@@ -143,7 +152,7 @@ those subjects.
   you remove it; a course that needs it again will ask.
 - Tools can't be changed while a course is being built or Claude is working, so a course is never written against a
   tool that disappears halfway through.
-- Tools download from the SelfSemester project on GitHub, and each file is checked against the copy the app expects
+- Tools download from the Coursify project on GitHub, and each file is checked against the copy the app expects
   before it's used. They run only inside the sealed frames of interactive figures. A computer without internet can
   install them from a `tool-packs` folder in the app's data folder.
 - Lessons that use a tool you've removed show a short note in its place.
@@ -333,14 +342,14 @@ everything.
 
 - Updated SvelteKit from 2.70 to 3.1 and the static adapter from 3.0 to 4.0. This fixes two SvelteKit advisories
   (a redirect through enhanced form submission, and script injection through a cache-control header in prerendered
-  pages) and one in `cookie`, which SvelteKit 2 depended on. None of them could be triggered in SelfSemester, which
+  pages) and one in `cookie`, which SvelteKit 2 depended on. None of them could be triggered in Coursify, which
   has no server, forms that post to one, or prerendered pages, but the fixed versions are what ships now.
 - Moving to SvelteKit 3 meant a few code changes: its settings moved from `svelte.config.js` into
   `vite.config.js`, `$lib` imports became `#lib` (set up in `package.json` under `imports`), `tsconfig.json`
   extends `$app/tsconfig`, and switching tabs in a classroom uses the new navigation options. Nothing you see in
   the app changed.
 - Building from source now needs Node.js 22.17 or newer (SvelteKit 3's minimum). The installer is unaffected.
-- Two advisories have no fix to install and don't affect SelfSemester:
+- Two advisories have no fix to install and don't affect Coursify:
   - `glib` (Rust) is part of Tauri's Linux window code. It isn't built into the Windows app at all, and a fix needs a
     newer GTK version than Tauri 2 uses.
   - `deepmerge` (npm) is used by the Svelte build plugin to merge its own settings while building. It never runs
@@ -353,12 +362,12 @@ everything.
 **Why:** installing a new version should never cost you a course, a mark or a file you added.
 
 - Installing a new version replaces only the program. Your courses, materials, submissions, marks and transcript
-  stay where they are (`%LOCALAPPDATA%\SelfSemester` and `Documents\SelfSemester`), and so does a draft in the course
+  stay where they are (`%LOCALAPPDATA%\Coursify` and `Documents\Coursify`), and so does a draft in the course
   builder. Uninstalling leaves them too.
 - Before a new version opens your data for the first time (and upgrades the database), it now copies the database
-  and every course's files to `Documents\SelfSemester\Backups`, outside the program folder. The last 5 backups are
+  and every course's files to `Documents\Coursify\Backups`, outside the program folder. The last 5 backups are
   kept.
-- If SelfSemester starts and finds your data missing but a backup exists, it restores the newest one by itself and
+- If Coursify starts and finds your data missing but a backup exists, it restores the newest one by itself and
   says so.
 - **Settings → Your data and backups** lists the backups, shows what happened at start-up, and has a
   **Back up now** button.
@@ -471,7 +480,7 @@ schedule, deadlines and transcript.
   lists anything that stops the course from being published.
 - Publishing schedules it like any other course. Multiple-choice and numeric questions are marked by the app;
   written answers are marked by you, line by line, against your own answer key. Claude is never called.
-- **Export to a folder** writes the draft to Documents\SelfSemester\Course builder as `course.json` plus a
+- **Export to a folder** writes the draft to Documents\Coursify\Course builder as `course.json` plus a
   `lesson.md` and `work.json` for each unit, to edit in any text editor. **Import a folder** reads it back as a new
   draft.
 

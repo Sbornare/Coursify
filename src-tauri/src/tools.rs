@@ -193,12 +193,13 @@ pub struct Release;
 
 impl Source for Release {
     fn fetch(&self, release: &str, id: &str, file: &ToolFile) -> Result<Vec<u8>, String> {
+        // The tool packs are published on the original project's releases, from before the app was named Coursify.
         let url = format!("https://github.com/munitkala/selfsemester/releases/download/{release}/{id}--{}", file.name);
-        let tmp = std::env::temp_dir().join(format!("selfsemester-tool-{}-{id}.part", std::process::id()));
+        let tmp = std::env::temp_dir().join(format!("coursify-tool-{}-{id}.part", std::process::id()));
         let mut cmd = std::process::Command::new(crate::course::audio::system_tool(r"System32\curl.exe", "curl"));
         cmd.args(["-sS", "-L", "--fail", "--proto", "=https", "--proto-redir", "=https", "--max-time", "120", "--max-filesize"])
             .arg(MAX_FILE.to_string())
-            .args(["-A", &format!("SelfSemester/{} (https://github.com/munitkala/selfsemester; tools)", env!("CARGO_PKG_VERSION")), "-o"])
+            .args(["-A", &format!("Coursify/{} (https://github.com/Sbornare/Coursify; tools)", env!("CARGO_PKG_VERSION")), "-o"])
             .arg(&tmp)
             .arg(&url);
         crate::course::audio::hidden(&mut cmd);
@@ -222,7 +223,7 @@ impl Source for Folder {
 }
 
 /// Files in a local folder when it has them, otherwise the GitHub release. The folder is
-/// `SELFSEMESTER_TOOLS_FROM` if set, else `tool-packs` in the app data folder, so copying the packed files there
+/// `COURSIFY_TOOLS_FROM` if set, else `tool-packs` in the app data folder, so copying the packed files there
 /// (from tools-dist or a release) lets a computer without internet install tools. Every file is still checked.
 pub struct LocalFirst(pub PathBuf);
 
@@ -233,7 +234,7 @@ impl Source for LocalFirst {
 }
 
 pub fn default_source(paths: &AppPaths) -> Box<dyn Source + Send> {
-    let dir = std::env::var_os("SELFSEMESTER_TOOLS_FROM")
+    let dir = std::env::var_os("COURSIFY_TOOLS_FROM")
         .filter(|v| !v.is_empty())
         .map(PathBuf::from)
         .unwrap_or_else(|| paths.data_dir.join("tool-packs"));

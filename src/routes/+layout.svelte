@@ -121,7 +121,7 @@
   <div class="notice-backdrop">
     <div class="notice" role="dialog" aria-modal="true" aria-labelledby="notice-title">
       <h1 id="notice-title">Before you start</h1>
-      <p class="muted">SelfSemester is free software, provided as is. Please read and accept these points.</p>
+      <p class="muted">Coursify is free software, provided as is. Please read and accept these points.</p>
       <ul>
         <li><strong>No warranty or liability.</strong> You use it at your own risk. The authors aren't responsible for any loss, including wrong marks, lost data, or usage and charges on your Claude account.</li>
         <li><strong>Not professional advice.</strong> Courses Claude writes are AI-generated self-study material and can contain mistakes; courses you write yourself are your own content. For health, law, money, safety or any subject where an error could cause harm, check everything with a qualified professional.</li>
@@ -129,9 +129,9 @@
         <li><strong>Personal study only.</strong> Don't publish or sell generated courses or downloaded material. Follow each source's licence, and don't use the app to get around paywalls, logins or site terms. Lessons draw their own figures and credit what they adapt, but generated content can still resemble existing material.</li>
         <li><strong>Your data goes to Anthropic.</strong> Course requests and the work you submit, including photos, are sent to Anthropic through your own Claude Code, under your own agreement with Anthropic. Don't submit other people's personal information.</li>
         <li><strong>Academic integrity.</strong> If you're at a school or university, follow its rules on AI tools.</li>
-        <li><strong>Back up your data.</strong> Everything is stored only on this computer. SelfSemester makes a copy in Documents before each update, but keep your own copy somewhere else too.</li>
+        <li><strong>Back up your data.</strong> Everything is stored only on this computer. Coursify makes a copy in Documents before each update, but keep your own copy somewhere else too.</li>
       </ul>
-      <p class="small muted">Full terms: DISCLAIMER.md at <a href="https://github.com/munitkala/selfsemester/blob/main/DISCLAIMER.md">github.com/munitkala/selfsemester</a>. SelfSemester isn't affiliated with or endorsed by Anthropic.</p>
+      <p class="small muted">Full terms: DISCLAIMER.md at <a href="https://github.com/Sbornare/Coursify/blob/main/DISCLAIMER.md">github.com/Sbornare/Coursify</a>. Coursify isn't affiliated with or endorsed by Anthropic.</p>
       <label class="agree"><input type="checkbox" bind:checked={agreed} /> I've read and accept these terms</label>
       <button onclick={acceptNotice} disabled={!agreed}>Continue</button>
     </div>
@@ -144,7 +144,7 @@
   <aside>
     <div class="brand">
       <span class="mark" aria-hidden="true">S</span>
-      {#if !compact}<span>SelfSemester</span>{/if}
+      {#if !compact}<span>Coursify</span>{/if}
     </div>
     {#if prefs.shortcuts}
       <button class="ghost find" onclick={() => (palette = true)} title="Go to (Ctrl+K)" aria-label="Go to (Ctrl+K)">
@@ -197,7 +197,7 @@
   </aside>
   <main class:reading use:widgets>
     {#if restored}
-      <p class="note">Your data was missing when SelfSemester started, so it restored your newest backup (from {when(restored)}). <a href="/settings">Settings</a> <button class="ghost small" onclick={() => (restored = null)}>OK</button></p>
+      <p class="note">Your data was missing when Coursify started, so it restored your newest backup (from {when(restored)}). <a href="/settings">Settings</a> <button class="ghost small" onclick={() => (restored = null)}>OK</button></p>
     {/if}
     {#if claudeProblem}
       <p class="note bad">{claudeProblem} <a href="/settings">Settings</a></p>

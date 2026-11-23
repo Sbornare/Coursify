@@ -1,7 +1,7 @@
 # Third-party software
 
-SelfSemester's own code is MIT licensed (see `LICENSE`). It contains no code copied from other projects. The
-interface icons and the colour themes were made for SelfSemester. The libraries below are pulled in by Cargo and npm
+Coursify's own code is MIT licensed (see `LICENSE`). It contains no code copied from other projects. The
+interface icons and the colour themes were made for Coursify. The libraries below are pulled in by Cargo and npm
 at build time and keep their own licences; none of them are GPL or AGPL.
 
 ## Rust crates used directly
@@ -41,7 +41,7 @@ crates' own files, which are used unmodified, and doesn't affect the rest of the
 These aren't part of the app. They're published unmodified on this project's GitHub release (`tools-2`), each with
 its licence file, and downloaded only when you install the tool (see `tools/catalog.json`). The chess.js file is
 wrapped so it loads as a plain script; nothing else is changed. The Python playground's runner
-(`tools/src/python-runner.js`) is SelfSemester's own code, under its MIT licence.
+(`tools/src/python-runner.js`) is Coursify's own code, under its MIT licence.
 
 | Tool | Package | Version | Licence |
 | --- | --- | --- | --- |
@@ -62,14 +62,14 @@ licensed and aren't shipped. `deepmerge` (MIT), pulled in by the Svelte build pl
 - **Screenshots** in `assets/screenshots` show the app with made-up demo courses, taken for this repository.
 - **Example lessons** shown in [docs/SCREENSHOTS.md](docs/SCREENSHOTS.md) were written by the app's own lesson prompt
   through Claude Code. They name free textbooks (OpenStax, Open Data Structures, the LibreOffice documentation) as
-  reading only; no text or figures from those books are reproduced. Their graphs are drawn by SelfSemester's own
+  reading only; no text or figures from those books are reproduced. Their graphs are drawn by Coursify's own
   plotting code and their diagrams were drawn for the lessons.
-- **Plots and diagrams** in lessons are drawn by code written for SelfSemester (`src/lib/figures.ts`); no charting
+- **Plots and diagrams** in lessons are drawn by code written for Coursify (`src/lib/figures.ts`); no charting
   or diagram library is used.
 
 ## Not included
 
-- **Claude Code** is Anthropic's software. SelfSemester doesn't bundle, modify or redistribute it. Each user
+- **Claude Code** is Anthropic's software. Coursify doesn't bundle, modify or redistribute it. Each user
   installs it themselves and signs in with their own Claude account, under Anthropic's terms.
 - **Course material.** The repository contains no textbooks or downloaded content. Courses are generated on the
   user's own computer, for their personal study, and link to their sources with each source's licence.

@@ -36,7 +36,7 @@
     <h1 id="tools-title">What will you study?</h1>
     <p class="muted">
       Some subjects work better with an extra tool in their lessons. Pick the ones for what you plan to study and
-      SelfSemester downloads them now. You can add or remove them later in Settings, Tools, and a course that needs
+      Coursify downloads them now. You can add or remove them later in Settings, Tools, and a course that needs
       something else will ask first.
     </p>
     <ul class="pick">

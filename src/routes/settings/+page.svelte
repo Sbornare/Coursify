@@ -89,7 +89,7 @@
 
 <div class="page-enter">
 <h1>Settings</h1>
-<p class="lead">How SelfSemester looks and runs, how it reaches Claude, and where it keeps your files.</p>
+<p class="lead">How Coursify looks and runs, how it reaches Claude, and where it keeps your files.</p>
 
 <div class="settings-grid">
 <nav class="jump" aria-label="Settings sections">
@@ -104,7 +104,7 @@
 <section class="card" id="tools">
   <h2>Tools</h2>
   <p class="small muted">
-    What SelfSemester uses to show lessons. Downloads come from the SelfSemester project on GitHub and are checked
+    What Coursify uses to show lessons. Downloads come from the Coursify project on GitHub and are checked
     before they're used. Lessons that use a tool you remove show a short note in its place.
   </p>
   <ToolList />
@@ -113,7 +113,7 @@
 <section class="card" id="sounds">
   <h2>Lesson sounds</h2>
   <p class="small muted">
-    Lessons where hearing matters, such as languages and music, have sounds to play. For each one SelfSemester looks
+    Lessons where hearing matters, such as languages and music, have sounds to play. For each one Coursify looks
     for a freely licensed recording by a native speaker on Wikimedia Commons, which sends only the word or phrase it
     is looking for. If none exists, a voice installed on this computer reads it, or the app makes the notes itself.
     Recordings are saved with the course, so lessons play offline.
@@ -151,7 +151,7 @@
     </dl>
     {#if status.claude.problem}<p class="note">{status.claude.problem}</p>{/if}
     <p class="small muted">
-      SelfSemester runs your own Claude Code and never sees your sign-in. Work counts toward your plan's usage limits; if you
+      Coursify runs your own Claude Code and never sees your sign-in. Work counts toward your plan's usage limits; if you
       hit one, work pauses and picks up again when the limit resets.
     </p>
   {/if}
@@ -181,9 +181,9 @@
     <button class="ghost" onclick={backupNow} disabled={backingUp}>{backingUp ? "Backing up…" : "Back up now"}</button>
   </div>
   <p class="small muted">
-    Updating SelfSemester never touches your courses: the installer only replaces the program. On top of that, before a new
+    Updating Coursify never touches your courses: the installer only replaces the program. On top of that, before a new
     version opens your data for the first time, the app copies your database and every course's files to
-    <code>Documents\SelfSemester\Backups</code>. If it ever starts and finds your data missing, it puts the newest backup
+    <code>Documents\Coursify\Backups</code>. If it ever starts and finds your data missing, it puts the newest backup
     back by itself. The last 5 backups are kept.
   </p>
   {#if status?.startup.problem}<p class="note bad">The backup at start-up didn't work: {status.startup.problem}</p>{/if}
@@ -223,7 +223,7 @@
       <dt>Grading</dt>
       <dd>Percent, letter grade and 4.0 GPA (Ontario-style bands)</dd>
     </dl>
-    <p class="small muted">SelfSemester {status.startup.version} · database schema v{status.schema_version}</p>
+    <p class="small muted">Coursify {status.startup.version} · database schema v{status.schema_version}</p>
   </section>
 {/if}
 </div>

@@ -222,7 +222,7 @@
       {#if credits(v.audio ?? {}).length}
         <details class="audio-credits small">
           <summary>Sound credits</summary>
-          <p class="muted">Recordings from Wikimedia Commons, used under their free licences. Clips marked "computer voice" were read by this computer, and notes were synthesised by SelfSemester.</p>
+          <p class="muted">Recordings from Wikimedia Commons, used under their free licences. Clips marked "computer voice" were read by this computer, and notes were synthesised by Coursify.</p>
           <ul>
             {#each credits(v.audio ?? {}) as c (c.file)}
               <li>

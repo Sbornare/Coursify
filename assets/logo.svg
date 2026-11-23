@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
-  <title>SelfSemester</title>
+  <title>Coursify</title>
   <rect width="1024" height="1024" rx="210" fill="#111111"/>
   <!-- cap band -->
   <path d="M292 500 V668 C292 668 382 760 512 760 C642 760 732 668 732 668 V500 L512 604 Z" fill="#FFD21F"/>

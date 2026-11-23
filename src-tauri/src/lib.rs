@@ -97,7 +97,7 @@ struct TestResult {
 async fn run_test_stage(state: tauri::State<'_, AppState>) -> Res<TestResult> {
     let req = StageRequest {
         tier: Tier::Haiku,
-        system: Some("You check that SelfSemester can reach Claude. Answer only with the requested JSON.".into()),
+        system: Some("You check that Coursify can reach Claude. Answer only with the requested JSON.".into()),
         prompt: "Reply with ok=true and one short, encouraging sentence for someone starting a new course.".into(),
         schema: serde_json::json!({
             "type": "object",
@@ -585,7 +585,7 @@ fn open_folder(app: AppHandle, state: tauri::State<'_, AppState>, path: String) 
     use tauri_plugin_opener::OpenerExt;
     let p = PathBuf::from(&path);
     if !(p.starts_with(&state.paths.user_dir) || p.starts_with(&state.paths.data_dir)) || !p.is_dir() {
-        return Err("That folder isn't one of SelfSemester's.".into());
+        return Err("That folder isn't one of Coursify's.".into());
     }
     app.opener().open_path(path, None::<&str>).map_err(err)
 }
@@ -593,6 +593,10 @@ fn open_folder(app: AppHandle, state: tauri::State<'_, AppState>, path: String) 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
     let paths = AppPaths::standard().expect("standard folders");
+    // Coursify used to be called SelfSemester: bring courses over from the old folders on the first launch.
+    if let Err(e) = paths.migrate_from_old_name() {
+        eprintln!("couldn't copy data from the SelfSemester folders: {e}");
+    }
     // A demo build brings a finished course; on its first launch on a computer with no data, copy it in.
     if let Some(demo) = demo::bundled()
         && let Err(e) = demo::seed(&paths, &demo, chrono::Utc::now())

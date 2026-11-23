@@ -124,7 +124,7 @@
     {@render seg("width", [{ value: "auto", label: "Auto" }, { value: "normal", label: "Narrow" }, { value: "wide", label: "Wide" }, { value: "full", label: "Full" }], "Page width")}
   </div>
   <div class="setting">
-    <div class="name">Open on<span class="hint">The page SelfSemester starts on.</span></div>
+    <div class="name">Open on<span class="hint">The page Coursify starts on.</span></div>
     {@render seg("startPage", [{ value: "/", label: "Today" }, { value: "/courses", label: "Courses" }, { value: "/insights", label: "Insights" }], "Start page")}
   </div>
 </section>

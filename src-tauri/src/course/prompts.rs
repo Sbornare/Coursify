@@ -40,7 +40,7 @@ const BANDS: &[&str] = &["Low", "Low–medium", "Medium", "Medium–high", "High
 
 /// Rules shared by every course-writing stage.
 pub const HOUSE_RULES: &str = "\
-You work inside SelfSemester, a desktop app that turns a subject into a complete, university-style course with hard \
+You work inside Coursify, a desktop app that turns a subject into a complete, university-style course with hard \
 deadlines and marks. The learner studies alone; you are not available while they study, so everything you write must \
 stand on its own. Rules: prefer free and openly licensed sources (OpenStax, MIT OpenCourseWare, LibreTexts, arXiv, \
 official documentation); only mention paid or copyrighted material when nothing free covers a topic, and mark it \

@@ -240,7 +240,7 @@ impl Curl {
     pub fn new(tmp_dir: PathBuf) -> Self {
         Curl {
             tmp_dir,
-            user_agent: format!("SelfSemester/{} (https://github.com/munitkala/selfsemester; lesson audio)", env!("CARGO_PKG_VERSION")),
+            user_agent: format!("Coursify/{} (https://github.com/Sbornare/Coursify; lesson audio)", env!("CARGO_PKG_VERSION")),
         }
     }
 }
@@ -762,7 +762,7 @@ fn fill(course_dir: &Path, clip: &Clip, net: Option<&dyn Net>, voice: &dyn Voice
                 std::fs::write(audio_dir.join(&name), bytes).map_err(|e| NetError::Failed(e.to_string()))?;
                 f.file = format!("{DIR}/{name}");
                 f.source = "synth".into();
-                f.credit = "Synthesised by SelfSemester".into();
+                f.credit = "Synthesised by Coursify".into();
             }
             Err(e) => {
                 f.status = "missing".into();
@@ -900,7 +900,7 @@ pub fn fill_all(paths: &AppPaths, net: Option<&dyn Net>, voice: &dyn Voice) -> P
 pub fn spawn(paths: AppPaths, online: impl Fn() -> bool + Send + 'static, changed: impl Fn() + Send + 'static) {
     let tmp = paths.claude_workdir().join("audio-tmp");
     std::thread::Builder::new()
-        .name("selfsemester-audio".into())
+        .name("coursify-audio".into())
         .spawn(move || {
             let net = Curl::new(tmp.clone());
             let voice = SystemVoice { tmp_dir: tmp };

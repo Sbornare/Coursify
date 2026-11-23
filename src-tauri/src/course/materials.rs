@@ -94,7 +94,7 @@ pub fn add_files(conn: &Connection, paths: &AppPaths, course_id: &str, files: &[
     for f in files {
         let name = f.file_name().and_then(|n| n.to_str()).ok_or("Bad file name.")?;
         let kind = kind_of(f).ok_or_else(|| {
-            format!("{name}: SelfSemester can take PDFs, images (PNG, JPG, WebP, GIF) and text files such as notes or code.")
+            format!("{name}: Coursify can take PDFs, images (PNG, JPG, WebP, GIF) and text files such as notes or code.")
         })?;
         let meta = std::fs::metadata(f).map_err(|e| format!("Couldn't open {name}: {e}"))?;
         if !meta.is_file() {

@@ -1,11 +1,11 @@
-# Contributing to SelfSemester
+# Contributing to Coursify
 
 Thanks for taking a look. Bug reports, ideas and fixes are all welcome, and you don't need to write code to help:
 telling us that a lesson was confusing or a mark looked wrong is just as useful.
 
 ## Reporting a problem or suggesting something
 
-Open an [issue](https://github.com/munitkala/selfsemester/issues/new/choose) and pick the template that fits. For
+Open an [issue](https://github.com/Sbornare/Coursify/issues/new/choose) and pick the template that fits. For
 problems, the version (Settings, at the bottom of **Your data and backups**) and the steps that led to it help most.
 Please don't paste anything private: your submitted work, your Claude account details or other people's names.
 
@@ -30,8 +30,8 @@ cd src-tauri
 cargo test --locked   # unit tests, including a simulated course from start to transcript
 ```
 
-To try the app without touching your real courses, set `SELFSEMESTER_HOME` to an empty folder, and set
-`SELFSEMESTER_NO_CLAUDE=1` if you don't want any Claude calls. The [README](README.md#development) has more on the
+To try the app without touching your real courses, set `COURSIFY_HOME` to an empty folder, and set
+`COURSIFY_NO_CLAUDE=1` if you don't want any Claude calls. The [README](README.md#development) has more on the
 layout of the code.
 
 ## A few house rules

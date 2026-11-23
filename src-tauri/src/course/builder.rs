@@ -29,7 +29,9 @@ fn io(e: rusqlite::Error) -> String {
 
 pub const KINDS: &[&str] = &["homework", "assignment", "quiz", "test", "exam", "project"];
 pub const QUESTION_TYPES: &[&str] = &["mcq", "numeric", "short", "long"];
-const FORMAT: &str = "selfsemester-course";
+const FORMAT: &str = "coursify-course";
+/// Courses exported before the app was renamed to Coursify.
+const OLD_FORMAT: &str = "selfsemester-course";
 
 #[derive(Debug, Clone, Serialize, Deserialize, PartialEq)]
 pub struct Draft {
@@ -406,7 +408,7 @@ fn clean(s: &str) -> String {
     if c.is_empty() { "untitled".into() } else { c.chars().take(60).collect() }
 }
 
-const README: &str = "This folder is a SelfSemester course, exported from the course builder.\r\n\r\n\
+const README: &str = "This folder is a Coursify course, exported from the course builder.\r\n\r\n\
 course.json      the title, summary, grade weights and the list of units\r\n\
 NN <unit>/lesson.md   that unit's lesson (Markdown, $...$ for maths)\r\n\
 NN <unit>/work.json   that unit's graded work: questions, answer keys, rubrics, deadlines\r\n\
@@ -415,7 +417,7 @@ NN <unit>/work files/NN <work>/ documents attached to each piece of work\r\n\r\n
 Edit anything in a text editor, then use Import folder in the course builder. Importing makes a new draft;\r\n\
 this folder isn't changed.\r\n";
 
-/// Write a draft to a new folder under Documents\SelfSemester\Course builder. Returns the folder.
+/// Write a draft to a new folder under Documents\Coursify\Course builder. Returns the folder.
 pub fn export(conn: &Connection, paths: &AppPaths, id: &str) -> Result<PathBuf, String> {
     let d = get(conn, id)?;
     let base = paths.user_dir.join("Course builder");
@@ -493,8 +495,8 @@ pub fn import(conn: &Connection, paths: &AppPaths, folder: &Path) -> Result<Stri
     let text = std::fs::read_to_string(folder.join("course.json"))
         .map_err(|_| "That folder has no course.json. Pick a folder exported from the course builder.".to_string())?;
     let file: CourseFile = serde_json::from_str(&text).map_err(|e| format!("course.json couldn't be read: {e}"))?;
-    if file.format != FORMAT {
-        return Err("That course.json isn't a SelfSemester course.".into());
+    if file.format != FORMAT && file.format != OLD_FORMAT {
+        return Err("That course.json isn't a Coursify course.".into());
     }
     let mut units = Vec::new();
     for u in file.units {

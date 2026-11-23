@@ -1,10 +1,10 @@
 //! Keeping your work safe across updates.
 //!
 //! The installer replaces only the program files, but a new version upgrades the database the first time it runs,
-//! and the program folder and the data folder are the same folder (`%LOCALAPPDATA%\SelfSemester`). So:
+//! and the program folder and the data folder are the same folder (`%LOCALAPPDATA%\Coursify`). So:
 //!
 //! - Before a new version (or a database upgrade) opens your data for the first time, everything that matters is
-//!   copied to `Documents\SelfSemester\Backups\<date> before <version>`: the database (a consistent snapshot, taken
+//!   copied to `Documents\Coursify\Backups\<date> before <version>`: the database (a consistent snapshot, taken
 //!   with SQLite's `VACUUM INTO`) and every course's files. The newest `KEEP` backups are kept.
 //! - If the app starts and finds no database but there is a backup, it restores the newest one before opening.
 //!

@@ -18,7 +18,7 @@ labels: bug
 
 **Version and setup**
 
-- SelfSemester version (Settings, at the bottom of "Your data and backups"):
+- Coursify version (Settings, at the bottom of "Your data and backups"):
 - Windows 10 or 11:
 - Course type (written by Claude or in the course builder, Structured or Sandbox):
 

@@ -3,7 +3,7 @@
 //!
 //! `export` copies one built course (its database rows, folder and the tools it uses) into a folder. A demo
 //! installer ships that folder as `demo\` next to the program. On the first launch of such a build, when this
-//! computer has no SelfSemester data yet, `seed` copies it in and opens the whole course at once: every lesson and
+//! computer has no Coursify data yet, `seed` copies it in and opens the whole course at once: every lesson and
 //! piece of work is released, and the deadlines move so the course starts on the day it's installed.
 //! Ordinary builds have no `demo\` folder, so none of this runs.
 
@@ -92,7 +92,7 @@ pub fn export(paths: &AppPaths, conn: &Connection, id: &str, out: &Path) -> Resu
 fn paths_for_cleanup() -> &'static AppPaths {
     static P: std::sync::OnceLock<AppPaths> = std::sync::OnceLock::new();
     P.get_or_init(|| {
-        let nowhere = std::env::temp_dir().join("selfsemester-demo-export-none");
+        let nowhere = std::env::temp_dir().join("coursify-demo-export-none");
         AppPaths::rooted(&nowhere, &nowhere)
     })
 }
@@ -104,7 +104,7 @@ pub fn bundled() -> Option<PathBuf> {
 }
 
 /// First launch of a demo build: copy the course in and open all of it. Does nothing (returns false) when this
-/// computer already has SelfSemester data, so a demo build never touches someone's own courses.
+/// computer already has Coursify data, so a demo build never touches someone's own courses.
 pub fn seed(paths: &AppPaths, demo: &Path, now: DateTime<Utc>) -> Result<bool, String> {
     if paths.db_file().exists() {
         return Ok(false);
@@ -176,7 +176,7 @@ mod tests {
     use crate::course::pipeline::tests::built_course;
 
     /// Make the demo folder from a real data folder:
-    /// `SS_DEMO_HOME=<SELFSEMESTER_HOME> SS_DEMO_COURSE=<id> SS_DEMO_OUT=<folder> cargo test --lib -- --ignored make_demo`
+    /// `SS_DEMO_HOME=<COURSIFY_HOME> SS_DEMO_COURSE=<id> SS_DEMO_OUT=<folder> cargo test --lib -- --ignored make_demo`
     #[test]
     #[ignore]
     fn make_demo() {

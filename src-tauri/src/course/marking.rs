@@ -448,7 +448,7 @@ fn safe_name(s: &str) -> String {
     cleaned.trim().trim_end_matches('.').chars().take(80).collect()
 }
 
-/// `Documents\SelfSemester\Completed\<course>\`: summary, lesson summaries, work given, my work, feedback, references.
+/// `Documents\Coursify\Completed\<course>\`: summary, lesson summaries, work given, my work, feedback, references.
 /// Leaves out prompts, sealed files, logs and big downloads.
 fn write_archive(conn: &Connection, paths: &AppPaths, sealer: &Sealer, course_id: &str, title: &str, final_pct: Option<f64>) -> std::io::Result<PathBuf> {
     let io = |e: rusqlite::Error| std::io::Error::other(e);

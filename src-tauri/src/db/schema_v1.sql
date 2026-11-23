@@ -1,4 +1,4 @@
--- SelfSemester schema, version 1.
+-- Coursify schema, version 1.
 -- Times are UTC, stored as ISO-8601 text ("2026-11-04T15:00:00Z"). JSON columns hold validated JSON text.
 
 CREATE TABLE profiles (

@@ -1,5 +1,5 @@
 <script lang="ts">
-  // Small line icons for each kind of course item, drawn for SelfSemester.
+  // Small line icons for each kind of course item, drawn for Coursify.
   let { kind, size = 18 }: { kind: string; size?: number } = $props();
 </script>
 

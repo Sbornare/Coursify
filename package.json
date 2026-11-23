@@ -1,5 +1,5 @@
 {
-  "name": "selfsemester",
+  "name": "coursify",
   "version": "0.8.0",
   "description": "Turns any subject into a full, deadline-based, graded course",
   "type": "module",

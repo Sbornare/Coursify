@@ -3,7 +3,7 @@
 (function () {
   var p = {};
   try {
-    p = JSON.parse(localStorage.getItem("selfsemester.prefs.v1") || "{}") || {};
+    p = JSON.parse(localStorage.getItem("coursify.prefs.v1") || "{}") || {};
   } catch (e) {
     p = {};
   }

@@ -1,6 +1,6 @@
-<p align="center"><img src="assets/logo.svg" width="112" alt="SelfSemester logo"></p>
+<p align="center"><img src="assets/logo.svg" width="112" alt="Coursify logo"></p>
 
-# SelfSemester
+# Coursify
 
 A Windows desktop app that turns any subject into a full university-style course: lessons, homework, quizzes,
 assignments and exams, released on a schedule with hard deadlines and real marks.
@@ -15,7 +15,7 @@ You can also write a course yourself in the **course builder**, with no Claude a
 
 > **Status: early (0.8.0).** It works end to end but has had little real-world use. Expect rough edges.
 
-<p align="center"><img src="assets/screenshots/04-today.png" width="860" alt="The Today page in a SelfSemester window"></p>
+<p align="center"><img src="assets/screenshots/04-today.png" width="860" alt="The Today page in a Coursify window"></p>
 
 ## What it does
 
@@ -71,7 +71,7 @@ Version 0.5.0 added figures in lessons, themes, an Insights page, clearer feedba
 | What | Details |
 | --- | --- |
 | Windows 10 or 11, 64-bit | Uses Microsoft Edge WebView2, which Windows 11 already has (the installer adds it on Windows 10 if needed). |
-| [Claude Code](https://claude.com/claude-code) | Installed and signed in **with a Claude subscription** (Pro or Max). SelfSemester runs your own copy of Claude Code; there's no API key to enter. |
+| [Claude Code](https://claude.com/claude-code) | Installed and signed in **with a Claude subscription** (Pro or Max). Coursify runs your own copy of Claude Code; there's no API key to enter. |
 | Internet | Needed while a course is being built, while lesson sounds or tools are being downloaded, and whenever work is marked. Reading lessons and doing work happen offline. |
 
 To build from source instead of downloading the installer, you also need Node.js 22.17+, Rust 1.85+ and the Visual
@@ -79,7 +79,7 @@ Studio C++ build tools (see [Install](#install)).
 
 ## Before you use it
 
-- **Cost.** SelfSemester itself is free. Signed in with a Claude subscription, Claude Code adds no extra charges. If
+- **Cost.** Coursify itself is free. Signed in with a Claude subscription, Claude Code adds no extra charges. If
   Claude Code is signed in with an API key instead, every call is billed to that key; the Settings page tells you
   which one you're using.
 - **Usage limits.** Building a course is heavy work: roughly one call per stage plus two per unit, with each unit
@@ -122,19 +122,19 @@ prompts, your course materials, your submitted work and review questions to Anth
 under your agreement with Anthropic. The only other thing the app contacts is Wikimedia Commons, to find and download
 recordings for lesson sounds: it sends the word, phrase or sound it's looking for and nothing about you. You can turn
 that off in Settings, Lesson sounds. When you install a tool, the app downloads its files from this project's GitHub
-releases; nothing about you is sent. SelfSemester never reads, stores or sends your Claude sign-in.
+releases; nothing about you is sent. Coursify never reads, stores or sends your Claude sign-in.
 Courses you write in the course builder never leave your computer, unless you ask Claude about one in review mode.
 
 | Folder | Contents |
 | --- | --- |
-| `%LOCALAPPDATA%\SelfSemester` | Database, course files, sealed answer keys, submissions, your course materials |
-| `Documents\SelfSemester\Course builder` | Courses you export from the course builder, to edit in a text editor |
-| `Documents\SelfSemester\Completed` | Archives of finished courses: summary, lesson notes, your work, feedback, reference list |
-| `Documents\SelfSemester\Backups` | Safety copies of your data, made before each update (the last 5 are kept) |
+| `%LOCALAPPDATA%\Coursify` | Database, course files, sealed answer keys, submissions, your course materials |
+| `Documents\Coursify\Course builder` | Courses you export from the course builder, to edit in a text editor |
+| `Documents\Coursify\Completed` | Archives of finished courses: summary, lesson notes, your work, feedback, reference list |
+| `Documents\Coursify\Backups` | Safety copies of your data, made before each update (the last 5 are kept) |
 
 ## Legal and responsible use
 
-Read [`DISCLAIMER.md`](DISCLAIMER.md) before using SelfSemester; the app also asks you to accept its key points the
+Read [`DISCLAIMER.md`](DISCLAIMER.md) before using Coursify; the app also asks you to accept its key points the
 first time it opens. In short:
 
 - **No warranty.** It's free software provided as is. The authors aren't liable for any loss, including wrong marks,
@@ -147,40 +147,40 @@ first time it opens. In short:
 - **Your Claude account, your agreement.** Claude Code runs under your own agreement with Anthropic, and your
   requests and submitted work are sent to Anthropic.
 - **Academic integrity.** If you're at a school or university, follow its rules on AI tools.
-- **Back up your data.** Everything lives on your computer, and nobody else can recover it. SelfSemester copies it
-  to `Documents\SelfSemester\Backups` before each update, but keep your own copy somewhere else too.
+- **Back up your data.** Everything lives on your computer, and nobody else can recover it. Coursify copies it
+  to `Documents\Coursify\Backups` before each update, but keep your own copy somewhere else too.
 
 ## Install
 
 ### Download the installer (easiest)
 
-1. Go to the [latest release](https://github.com/munitkala/selfsemester/releases/latest) and download
-   `SelfSemester_<version>_x64-setup.exe` under **Assets**.
+1. Go to the [latest release](https://github.com/Sbornare/Coursify/releases/latest) and download
+   `Coursify_<version>_x64-setup.exe` under **Assets**.
 2. Run it. It installs for your Windows account only, so it doesn't need administrator rights.
 3. The installer isn't code-signed, so Windows SmartScreen warns about an unknown publisher. Choose
-   **More info → Run anyway**. To check the download first, run `Get-FileHash .\SelfSemester_<version>_x64-setup.exe`
+   **More info → Run anyway**. To check the download first, run `Get-FileHash .\Coursify_<version>_x64-setup.exe`
    in PowerShell and compare it with the `.sha256` file next to the installer on the release page.
-4. Open SelfSemester from the Start menu.
+4. Open Coursify from the Start menu.
 
 The installers are built by GitHub Actions straight from the tagged source code (see
 `.github/workflows/release.yml`), not on anyone's own computer.
 
 **Updating:** download the newer installer and run it. It replaces only the program: your courses, materials,
 marks, transcript and course-builder drafts are kept, and the new version backs them up to
-`Documents\SelfSemester\Backups` before it first opens them. If your data ever goes missing, SelfSemester restores
+`Documents\Coursify\Backups` before it first opens them. If your data ever goes missing, Coursify restores
 the newest backup by itself when it starts. **Settings → Your data and backups** shows the backups and has a
 **Back up now** button.
 
-**Uninstalling:** use **Settings → Apps → Installed apps** in Windows. Your data in `%LOCALAPPDATA%\SelfSemester`
-and `Documents\SelfSemester` stays until you delete it yourself.
+**Uninstalling:** use **Settings → Apps → Installed apps** in Windows. Your data in `%LOCALAPPDATA%\Coursify`
+and `Documents\Coursify` stays until you delete it yourself.
 
 ### Or build it yourself
 
 You need Node.js 22.17+, Rust 1.85+ and the Visual Studio C++ build tools.
 
 ```powershell
-git clone https://github.com/munitkala/selfsemester.git
-cd selfsemester
+git clone https://github.com/Sbornare/Coursify.git
+cd coursify
 npm install
 npm run tauri build -- --bundles nsis
 ```
@@ -191,7 +191,7 @@ The installer is written to `src-tauri\target\release\bundle\nsis\`. Run it the 
 
 Courses you write yourself in the course builder work without this. For courses Claude writes and marks, install
 [Claude Code](https://claude.com/claude-code), open a terminal, run `claude` and sign in with your Claude account.
-Then in SelfSemester open **Settings** and press **Run test**.
+Then in Coursify open **Settings** and press **Run test**.
 
 ## Development
 
@@ -204,7 +204,7 @@ cargo test                 # unit tests, including a simulated course from intak
 ```
 
 **A demo installer with a finished course in it:** build the course in a separate copy of the app (set
-`SELFSEMESTER_HOME` to an empty folder), then copy it out and bundle it:
+`COURSIFY_HOME` to an empty folder), then copy it out and bundle it:
 
 ```powershell
 cd src-tauri
@@ -214,7 +214,7 @@ cd ..
 npm run tauri build -- --bundles nsis --config src-tauri/tauri.demo.conf.json
 ```
 
-The copy leaves out build logs, settings and anything submitted or marked. On a computer with no SelfSemester data,
+The copy leaves out build logs, settings and anything submitted or marked. On a computer with no Coursify data,
 the demo opens the whole course at once, starting the day it's installed.
 
 Three tests call the real Claude Code and use plan usage, so they're skipped unless asked for:
@@ -227,8 +227,8 @@ Two environment variables help when testing without touching real courses:
 
 | Variable | Effect |
 | --- | --- |
-| `SELFSEMESTER_HOME=<folder>` | Keep all data (database, courses, archives) under that folder instead of AppData and Documents |
-| `SELFSEMESTER_NO_CLAUDE=1` | Never start Claude jobs; queued work just waits (useful for demos and UI work) |
+| `COURSIFY_HOME=<folder>` | Keep all data (database, courses, archives) under that folder instead of AppData and Documents |
+| `COURSIFY_NO_CLAUDE=1` | Never start Claude jobs; queued work just waits (useful for demos and UI work) |
 
 The pictures in [docs/SCREENSHOTS.md](docs/SCREENSHOTS.md) are the app's interface with made-up demo data, plus the
 example lessons above.
@@ -284,9 +284,9 @@ how to run the app and its checks.
 
 MIT. See `LICENSE`, `DISCLAIMER.md` for the terms of use, and `THIRD_PARTY.md` for the libraries the app uses.
 
-SelfSemester is an independent project. It isn't made by, affiliated with or endorsed by Anthropic. Claude and
+Coursify is an independent project. It isn't made by, affiliated with or endorsed by Anthropic. Claude and
 Claude Code are trademarks of Anthropic.
 
 ## About this project
 
-Written by the SelfSemester authors with help from Claude.
+Written by the Coursify authors with help from Claude.

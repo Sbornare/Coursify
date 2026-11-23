@@ -2,5 +2,5 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
 fn main() {
-    selfsemester_lib::run()
+    coursify_lib::run()
 }

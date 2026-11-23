@@ -1,5 +1,5 @@
 <script lang="ts">
-  // Line icons drawn for SelfSemester on a 24 px grid, in the current text colour.
+  // Line icons drawn for Coursify on a 24 px grid, in the current text colour.
   let { name, size = 18 }: { name: string; size?: number } = $props();
 
   const paths: Record<string, string> = {
